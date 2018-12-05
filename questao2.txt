@@ -1,0 +1,50 @@
+############################################################################
+# Universidade de Brasilia - campus Gama
+# Professor: André Lanna
+# Disciplina: Técnicas de Programação em Plataformas Emergentes.
+# integrantes:
+#             Iolane Caroline Alves de Andrade.    matricula: 13/0028355
+#             Victor Hugo Mota                     matricula: 13/0136581
+# 
+# Atividade: AVALIAÇÃO 4
+############################################################################
+
+Questão 2
+
+JavaRMI é um mecanismo que permite a invocação de métodos que residem em diferentes máquinas virtuais Java (JMV). Uma aplicação JavaRMI é frequentemente usada na arquitetura cliente-servidor. O servidor cria objeto remotos e faz referências a esses objetos disponíveis. Ao possuir esses objetos, são disponibilizados para o cliente invocar seus métodos sobre os objetos.
+
+Os Stubs são classes usadas do lado do cliente e funciona como proxy para o objeto remoto. Essas classes recebem os parâmetros exportados pelo objeto, que estão do lado do cliente, e são encaminhados para o lado do servidor que serão interpretados pelos Skeleton. Os stubs seguem os seguintes passos antes de retornar os valores para o Skeleton:
+* Iniciar conexão com a máquina virtual que contém o objeto remoto;
+* Escrever e transmitir os parâmetros para a máquina virtual;
+* Esperar pelos resultados da invocação do objeto;
+* Ler os resultados retornados;
+* Retornar os valores ao objeto que executou a chamada. 
+
+O Skeleton trabalha em sentido inverso ao dos stubs. São responsáveis por receber o valor do retorno do método remoto e direcionar ao stub correspondente. Para cada stub deve ser criado um skeleton correspondente. Os Skeletons realiza as seguintes operações antes de retornar ao Stub:
+* Ler os parâmetros enviados pelo Stub;
+* Invocar o método no objeto remoto;
+* Escrever e transmitir o resultado ao objeto que executou a chamada.
+
+Um Registro de objeto remoto é um serviço de nomenclatura de inicialização usado pelos servidores RMI no mesmo host para ligar objetos remotos a nomes. Os clientes em hosts locais e remotos podem, então: 
+* Procurar objetos remotos;
+* Fazer invocações de métodos remotos. 
+O registro é normalmente usado para: 
+* Localizar o primeiro objeto remoto no qual um aplicativo precisa invocar métodos;
+* Fornecer suporte específico a aplicativos para localizar outros objetos.
+Os métodos da classe java.rmi.registry.LocateRegistry são usados ​​para obter um registro operando no host local ou no host e porta locais. 
+Os métodos baseados em URL da classe java.rmi.Naming operam em um registro e podem ser usados ​​para procurar um objeto remoto em qualquer host, e no host local, da seguinte maneira: 
+* Liga um nome simples (string) a um objeto remoto;
+* Religa um novo nome para um objeto remoto (substituindo a ligação antiga);
+* Desvincula um objeto remoto e lista as URLs vinculadas no registro.
+
+A Serialização de objetos é o processo de salvar o estado de um objeto em uma sequência de bytes, bem como o processo de reconstrução desses bytes em um objeto ativo. O Java fornece um mecanismo de serialização que permite esvaziar do objeto toda a informação dos seus campos e armazená-la em um formato do tipo string que pode ser facilmente enviado por rede. Quando a JVM de destino recebe a informação serializada, utiliza-a para instanciar um novo objeto que será uma cópia exata do objeto inicial. Mas, quando um objeto referência outro objeto, é possível que existam de relação muito densas, formando grafos muito complexos. O processo de serialização é feito ao longo do grafo e pode acarretar em um consumo alto de CPU e transmissão de rede.
+Para serializar um objeto, é necessário que classe do objeto que será serializado: 
+* Implemente a interface java.io.Serializable;
+* Os campos da classe sejam serializáveis (em alternativa tipos primitivos).
+Desta forma, é possível garantir que todo o grafo é serializável.
+Durante a desserialização, os campos de classes não-serializáveis ​​serão inicializados usando o construtor no-arg public ou protected da classe. Um construtor no-arg deve estar acessível para a subclasse que é serializável. Os campos de subclasses serializáveis ​​serão restaurados da stream(fluxo).
+Ao percorrer um gráfico, pode ser encontrado um objeto que não é serializável. Nesse caso, o NotSerializableException será lançado e identificará a classe do objeto não serializável.
+
+Relacionando os componentes com a figura 1 da página 11, os stubs e os Skeletons realizam uma série de passos que definem as interações entre os objetos. Tais passos que definem os recursos e as formas de interação se assemelham aos padrões e convenções do modelo de componente.
+A Serialização e o Registro fazem o papel de framework de componentes, pois, o framework de componentes possibilita que os desenvolvedores possam realizar trocas de mensagens, passagens de dados e ligação dos componentes sem dificuldades, pois já terá feita a comunicação entre os componentes. A serialização fornece um processo que facilita o envio de dados por rede e o Registro é um serviço para ligar objetos remotos a nomes.
+
