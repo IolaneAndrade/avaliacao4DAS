@@ -1,0 +1,28 @@
+############################################################################
+# Universidade de Brasilia - campus Gama
+# Professor: André Lanna
+# Disciplina: Técnicas de Programação em Plataformas Emergentes.
+# integrantes:
+#             Iolane Caroline Alves de Andrade.    matricula: 13/0028355
+#             Victor Hugo Mota                     matricula: 13/0136581
+# 
+# Atividade: AVALIAÇÃO 4
+############################################################################
+
+Questão 1:
+
+1.  O modelo de componente representa o elemento da arquitetura responsável por definir os padrões e convenções nos quais os componentes serão obrigados a seguir. Essa imposição possui o objetivo de descrever qual a função e como os componentes interagem entre si. O modelo de componente pode possuir os seguintes padrões e convenções: Tipos de componentes, Formas de interação e Definição de Recursos.
+* Os tipos de componentes: permitem o polimorfismo entre os componentes, ou seja, permite que um mesmo componente possa ser utilizado em várias partes do sistema e de diferentes formas de interação;
+* As formas de interação: é como são definidas as interações entre componentes e entre os componentes com o framework. Um exemplo de aplicação é no Java para conexão com o banco de dados, onde se tem uma classe que é responsável por unir a aplicação ao banco de dados;
+* A definição dos recursos: é uma composição de componentes ligada a outros componentes ou recursos, onde esse recurso pode ser derivado tanto por um framework de componentes quanto a algum componente utilizado pelo framework.
+	 
+2.	Framework dos componentes é a base que dá suporte e reforça o modelo de componentes. Um framework possui o dever de gerenciar os recursos de seus componentes e fornecer algum meio de comunicação entre eles. Então o framework de componentes assim como o modelo de componentes impõem regras no projeto, regras essas que o modelo de componente devem ser consideradas para o modelo de componente. Então é possível estabelecer uma relação entre dois componentes. O modelo de componentes estabelece as definições que o framework, enquanto o framework deve regular as definições provindas dos componentes. O framework de componentes possibilita que os desenvolvedores possam realizar trocas de mensagens, passagens de dados e ligação dos componentes sem dificuldades, pois já terá feita a comunicação entre os componentes.
+
+
+3. Componente de Software Spagnoli e Becker apresentam três definições de autores diferentes para explicar o que são os componentes de software.
+A primeira definição diz que, componente pode ser qualquer parte do sistema de software que possa ser identificado e reusado. Um conceito genérico que se preocupa com o reuso em todas as fases do processo de desenvolvimento de software, independente da tecnologia disponível.
+A segunda definição é apresentada diz que componente é um conjunto independente de serviços reutilizáveis. Onde o termo “serviços reutilizáveis” acarreta em recursos ou habilidades que muitos outros componentes podem acessar. Já o termo “independente” indica que o componente não possui ligação ou vínculo com o contexto onde pode ser usado.
+A terceira definição diz que, componente de software é uma unidade de composição com interfaces contratualmente especificadas e apenas explícitas dependências de contexto. Componente de software pode ser usado independente e combinado com outras partes. Tal definição induz a compreensão de que os componentes de software são unidades de atuação independentes e podem implicar em inúmeras combinações, o que podem trazer diversas consequências. 
+O fato do componente de software ser uma unidade de atuação independente, implica que o componente necessita possuir interfaces bem definidas e que sua implementação seja encapsulada, desta forma, a interação com o ambiente deverá ser feita através de suas interfaces. Também têm-se a necessidade dos componentes especificarem suas dependências de contexto, indicando o que é exigido para seu reuso e o que ele fornece. Outra característica apontada é que o componente não pode apresentar nenhuma persistência de estado. Para isso, é necessário que ele não possa ser distinguido de suas cópias. Ou seja, não devem ser mantidos os dados correspondentes de uma aplicação específica, desta maneira todas as cópias de um componente permanecerão idênticas.
+Para o desenvolvimento, a aplicação e uso de tecnologias de componentes está ligada a componentes de código. Neste ponto de vista, os componentes não estão presentes, como artefatos, em todas as fases do ciclo de vida de desenvolvimento, ou seja, são considerados apenas artefatos de implementação. Por ser a visão que recebe maior ênfase, no trabalho de Spagnoli e Becker, é considerada o aspecto mais maduro de DBC. Portanto, a definição de Szyperski ressalta este aspecto como sendo o mais maduro de DBC, preocupando-se puramente com componentes como sendo a abstração seguinte a funções, módulos e classes.
+
